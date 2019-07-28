@@ -154,17 +154,19 @@ struct SXT_Document * parseSXTFile(const struct SXT_File  *sxtFile) {
 
     struct SXT_Fileproperties * properties = parseSXTFileHeader(sxtFile->buffer);
     document -> properties_ptr = properties;
+    printSXTFileProperties(document->properties_ptr);
 
     uint8_t bufferOffset = 20;
     if(properties->isAdmin == true) {
         struct SXT_Admintag * admintag = parseSXTAdminTag(sxtFile->buffer + bufferOffset);
         document->admintag_ptr = admintag;
+        printSXTAdminTag(document->admintag_ptr);
         bufferOffset += 18;
     }
     document->contentLength = (uint8_t) (sxtFile->buffer + bufferOffset)[0];
     document->contentBuffer = parseSXTBody(sxtFile, bufferOffset);
 
-    printSXTDocument(document);
+    printSXTBody(document);
 
     return document;
 }

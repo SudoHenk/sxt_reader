@@ -3,8 +3,8 @@ project(sxt_reader C)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_COMPILER afl-gcc)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32")
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32 -fsanitize=address")
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32 -fsanitize=address")
 #set(CMAKE_CXX_COMPILER afl-clang-fast++)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
 
