@@ -24,6 +24,8 @@ int main(int argc, char* argv[]) {
         struct SXT_Document * document = parseSXTFile(sxtFile);
         free(sxtFile->buffer);
         free(sxtFile);
+        free(document);
+        printSXTBody(document);
     }
     return 0;
 }
